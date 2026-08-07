@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <base target="_top">
@@ -22,9 +22,17 @@
       --shadow:0 20px 50px rgba(8,40,28,.12);
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     }
+
     *{box-sizing:border-box}
     [hidden]{display:none!important}
-    body{margin:0;background:radial-gradient(circle at top right,rgba(198,161,91,.14),transparent 34%),linear-gradient(135deg,#eef5f1 0%,#f8faf9 55%,#eef3ef 100%);color:var(--text);min-height:100vh}
+
+    body{
+      margin:0;
+      background:radial-gradient(circle at top right,rgba(198,161,91,.14),transparent 34%),linear-gradient(135deg,#eef5f1 0%,#f8faf9 55%,#eef3ef 100%);
+      color:var(--text);
+      min-height:100vh;
+    }
+
     .shell{min-height:100vh;display:grid;grid-template-columns:320px minmax(0,1fr)}
     .sidebar{background:linear-gradient(180deg,var(--green-950),var(--green-800));color:#fff;padding:36px 28px;position:sticky;top:0;height:100vh;overflow:hidden}
     .sidebar::after{content:"";position:absolute;width:240px;height:240px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-110px;bottom:-70px}
@@ -36,6 +44,7 @@
     .status-card strong{display:block;margin-bottom:8px}
     .status-row{display:flex;gap:9px;align-items:center;font-size:14px;color:rgba(255,255,255,.78)}
     .dot{width:9px;height:9px;border-radius:50%;background:#7be0a8;box-shadow:0 0 0 5px rgba(123,224,168,.12)}
+
     main{padding:42px;display:flex;justify-content:center}
     .content{width:min(1040px,100%)}
     .topbar{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}
@@ -43,9 +52,11 @@
     .topbar h2{margin:0;font-size:clamp(28px,4vw,42px)}
     .topbar p{margin:8px 0 0;color:var(--muted)}
     .secure-chip{white-space:nowrap;padding:10px 14px;border-radius:999px;background:var(--green-100);color:var(--green-800);font-weight:750;font-size:13px}
+
     .card{position:relative;isolation:isolate;background:var(--surface);border:1px solid rgba(23,77,54,.08);box-shadow:var(--shadow);border-radius:24px;overflow:hidden}
     .card::before{content:"";position:absolute;inset:0;background-image:url("https://lh3.googleusercontent.com/d/1WeJsvzxon5JVw0QdFMIojNb1BpAbzYnA");background-repeat:no-repeat;background-position:center;background-size:min(55%,520px);opacity:.04;pointer-events:none;z-index:-1}
-    .card form,.card .loading{position:relative;z-index:1}
+    .card form,.card .loading,.thank-you{position:relative;z-index:1}
+
     .section{padding:30px;border-bottom:1px solid var(--line)}
     .section:last-child{border-bottom:0}
     .section-title{display:flex;align-items:center;gap:12px;margin-bottom:20px}
@@ -53,6 +64,7 @@
     .section-title h3{margin:0;font-size:19px}
     .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
     .col-12{grid-column:span 12}.col-8{grid-column:span 8}.col-6{grid-column:span 6}.col-4{grid-column:span 4}.col-3{grid-column:span 3}
+
     label{display:block;font-size:13px;font-weight:800;color:#34483d;margin-bottom:8px}
     .required::after{content:" *";color:var(--danger)}
     input,select{width:100%;min-height:48px;border:1px solid #cdd9d1;border-radius:13px;background:#fff;color:var(--text);padding:0 14px;font-size:15px;outline:none;transition:border-color .18s,box-shadow .18s,background .18s}
@@ -60,20 +72,65 @@
     input[readonly]{background:#f3f6f4;color:#4f6057}
     input.uppercase{text-transform:uppercase}
     .hint{font-size:12px;color:var(--muted);margin-top:7px;line-height:1.4}
+
     .actions{padding:24px 30px 30px;display:flex;justify-content:space-between;align-items:center;gap:18px;background:rgba(251,252,251,.92)}
     .note{color:var(--muted);font-size:13px}
     button{border:0;border-radius:14px;min-height:50px;padding:0 22px;font-weight:800;font-size:15px;cursor:pointer}
     .primary{background:linear-gradient(135deg,var(--green-800),var(--green-700));color:#fff;box-shadow:0 12px 24px rgba(23,77,54,.2)}
-    .primary:disabled{opacity:.55;cursor:wait}.secondary{background:transparent;color:var(--green-800)}
+    .primary:disabled{opacity:.55;cursor:wait}
+    .secondary{background:transparent;color:var(--green-800)}
+
     .loading{display:grid;place-items:center;min-height:420px;color:var(--muted)}
+
+    .thank-you{min-height:520px;padding:48px 28px;display:grid;place-items:center;text-align:center}
+    .thank-you-inner{width:min(560px,100%)}
+    .success-icon{width:84px;height:84px;margin:0 auto 24px;border-radius:50%;display:grid;place-items:center;background:var(--green-100);color:var(--green-800);font-size:42px;font-weight:900;border:1px solid rgba(23,77,54,.12);box-shadow:0 16px 36px rgba(23,77,54,.12)}
+    .thank-you .eyebrow{margin-bottom:10px}
+    .thank-you h3{margin:0;font-size:clamp(28px,5vw,40px);line-height:1.08;color:var(--green-950)}
+    .thank-you p{margin:16px auto 0;max-width:490px;color:var(--muted);font-size:16px;line-height:1.65}
+    .thank-you .primary{margin-top:28px;min-width:240px}
+
     .toast{position:fixed;right:24px;bottom:24px;max-width:380px;padding:16px 18px;background:#102b20;color:#fff;border-radius:15px;box-shadow:0 14px 36px rgba(0,0,0,.22);transform:translateY(130%);opacity:0;transition:.25s ease;z-index:20}
-    .toast.show{transform:translateY(0);opacity:1}.toast.error{background:#7f1d1d}
+    .toast.show{transform:translateY(0);opacity:1}
+    .toast.error{background:#7f1d1d}
+
     .app-footer{min-height:94px;padding:16px 34px;background:#08281c;color:#fff;display:flex;justify-content:center;align-items:center;gap:28px;border-top:3px solid var(--gold)}
     .app-footer img{width:66px;height:66px;object-fit:contain}
     .footer-text{display:flex;flex-direction:column;align-items:center;text-align:center;line-height:1.35}
-    .footer-text strong{font-size:14px;letter-spacing:.12em}.footer-text span{margin-top:3px;font-size:12px;color:rgba(255,255,255,.68)}
-    @media(max-width:920px){.shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto;padding:24px}.sidebar h1{max-width:none;font-size:25px}.sidebar p,.status-card{display:none}.brand-mark{width:68px;height:68px;margin-bottom:14px}.sidebar{display:flex;align-items:center;gap:16px}.sidebar h1{font-size:22px}main{padding:22px}.topbar{align-items:start}}
-    @media(max-width:680px){main{padding:14px}.topbar{display:block}.secure-chip{display:inline-block;margin-top:14px}.card{border-radius:18px}.card::before{background-size:78%;opacity:.025}.section{padding:22px 18px}.grid{gap:14px}.col-8,.col-6,.col-4,.col-3{grid-column:span 12}.actions{padding:18px;flex-direction:column-reverse;align-items:stretch}button{width:100%}.note{text-align:center}.toast{left:14px;right:14px;bottom:14px}.app-footer{padding:14px;gap:12px}.app-footer img{width:46px;height:46px}.footer-text strong{font-size:11px}.footer-text span{font-size:10px}}
+    .footer-text strong{font-size:14px;letter-spacing:.12em}
+    .footer-text span{margin-top:3px;font-size:12px;color:rgba(255,255,255,.68)}
+
+    @media(max-width:920px){
+      .shell{grid-template-columns:1fr}
+      .sidebar{position:relative;height:auto;padding:24px;display:flex;align-items:center;gap:16px}
+      .sidebar h1{max-width:none;font-size:22px}
+      .sidebar p,.status-card{display:none}
+      .brand-mark{width:68px;height:68px;margin-bottom:14px}
+      main{padding:22px}
+      .topbar{align-items:start}
+    }
+
+    @media(max-width:680px){
+      main{padding:14px}
+      .topbar{display:block}
+      .secure-chip{display:inline-block;margin-top:14px}
+      .card{border-radius:18px}
+      .card::before{background-size:78%;opacity:.025}
+      .section{padding:22px 18px}
+      .grid{gap:14px}
+      .col-8,.col-6,.col-4,.col-3{grid-column:span 12}
+      .actions{padding:18px;flex-direction:column-reverse;align-items:stretch}
+      button{width:100%}
+      .note{text-align:center}
+      .thank-you{min-height:430px;padding:38px 20px}
+      .success-icon{width:72px;height:72px;font-size:36px}
+      .thank-you .primary{min-width:0;width:100%}
+      .toast{left:14px;right:14px;bottom:14px}
+      .app-footer{padding:14px;gap:12px}
+      .app-footer img{width:46px;height:46px}
+      .footer-text strong{font-size:11px}
+      .footer-text span{font-size:10px}
+    }
   </style>
 </head>
 <body>
@@ -104,12 +161,17 @@
         </div>
 
         <div class="card" id="appCard">
-          <div class="loading" id="loading">Loading form optionsâ€¦</div>
+          <div class="loading" id="loading">Loading form options...</div>
+
           <form id="personnelForm" hidden>
             <section class="section">
               <div class="section-title"><span class="section-number">1</span><h3>Identification</h3></div>
               <div class="grid">
-                <div class="col-4"><label for="badgeNumber" class="required">Badge Number</label><input id="badgeNumber" name="badgeNumber" type="text" inputmode="numeric" autocomplete="off" required><div class="hint">Saved as text so leading zeroes are preserved.</div></div>
+                <div class="col-4">
+                  <label for="badgeNumber" class="required">Badge Number</label>
+                  <input id="badgeNumber" name="badgeNumber" type="text" inputmode="numeric" autocomplete="off" required>
+                  <div class="hint">Saved as text so leading zeroes are preserved.</div>
+                </div>
                 <div class="col-4"><label for="rank" class="required">Rank</label><select id="rank" name="rank" required></select></div>
                 <div class="col-4"><label for="gender" class="required">Gender</label><select id="gender" name="gender" required></select></div>
               </div>
@@ -129,7 +191,11 @@
               <div class="section-title"><span class="section-number">3</span><h3>Assignment</h3></div>
               <div class="grid">
                 <div class="col-6"><label for="camp" class="required">Camp</label><select id="camp" name="camp" required></select></div>
-                <div class="col-6"><label for="office" class="required">Office</label><select id="office" name="office" required disabled><option value="">Select a camp first</option></select><div class="hint">Only active offices assigned to the selected camp are shown.</div></div>
+                <div class="col-6">
+                  <label for="office" class="required">Office</label>
+                  <select id="office" name="office" required disabled><option value="">Select a camp first</option></select>
+                  <div class="hint">Only active offices assigned to the selected camp are shown.</div>
+                </div>
               </div>
             </section>
 
@@ -143,9 +209,22 @@
 
             <div class="actions">
               <div class="note">Duplicates are never blocked. Indicators are written directly to the LIST sheet.</div>
-              <div><button class="secondary" type="reset">Clear</button><button class="primary" id="submitButton" type="submit">Submit Personnel Record</button></div>
+              <div>
+                <button class="secondary" type="reset">Clear</button>
+                <button class="primary" id="submitButton" type="submit">Submit Personnel Record</button>
+              </div>
             </div>
           </form>
+
+          <section class="thank-you" id="thankYou" hidden aria-live="polite">
+            <div class="thank-you-inner">
+              <div class="success-icon" aria-hidden="true">✓</div>
+              <div class="eyebrow">Submission complete</div>
+              <h3>Personnel Record Submitted</h3>
+              <p>Thank you. The personnel profile has been successfully recorded in the NBP Personnel Database.</p>
+              <button class="primary" id="addAnotherButton" type="button">Add Another Personnel</button>
+            </div>
+          </section>
         </div>
       </div>
     </main>
@@ -164,7 +243,10 @@
     const $=id=>document.getElementById(id);
     const form=$('personnelForm');
 
-    google.script.run.withSuccessHandler(initializeForm).withFailureHandler(error=>showFatal(error.message||String(error))).getFormOptions();
+    google.script.run
+      .withSuccessHandler(initializeForm)
+      .withFailureHandler(error=>showFatal(error.message||String(error)))
+      .getFormOptions();
 
     function initializeForm(options){
       state.ranks=options.ranks||[];
@@ -207,25 +289,46 @@
     form.addEventListener('submit',event=>{
       event.preventDefault();
       if(!form.reportValidity())return;
+
       const submitButton=$('submitButton');
       submitButton.disabled=true;
-      submitButton.textContent='Savingâ€¦';
+      submitButton.textContent='Saving...';
+
       const payload=Object.fromEntries(new FormData(form).entries());
-      google.script.run.withSuccessHandler(result=>{
-        const duplicateNote=result.duplicateStatus==='UNIQUE'?'No duplicate detected.':`${result.duplicateStatus}: ${result.duplicateType}.`;
-        showToast(`Personnel record saved. ${duplicateNote}`);
-        form.reset();
-        submitButton.disabled=false;
-        submitButton.textContent='Submit Personnel Record';
-        $('badgeNumber').focus();
-      }).withFailureHandler(error=>{
-        showToast(error.message||String(error),true);
-        submitButton.disabled=false;
-        submitButton.textContent='Submit Personnel Record';
-      }).submitPersonnel(payload);
+
+      google.script.run
+        .withSuccessHandler(()=>{
+          form.reset();
+          submitButton.disabled=false;
+          submitButton.textContent='Submit Personnel Record';
+          showThankYou();
+        })
+        .withFailureHandler(error=>{
+          showToast(error.message||String(error),true);
+          submitButton.disabled=false;
+          submitButton.textContent='Submit Personnel Record';
+        })
+        .submitPersonnel(payload);
     });
 
-    ['lastName','firstName','middleName'].forEach(id=>$(id).addEventListener('blur',event=>{event.target.value=event.target.value.trim().replace(/\s+/g,' ').toUpperCase()}));
+    $('addAnotherButton').addEventListener('click',()=>{
+      $('thankYou').hidden=true;
+      form.hidden=false;
+      window.scrollTo({top:0,behavior:'smooth'});
+      setTimeout(()=>$('badgeNumber').focus(),250);
+    });
+
+    ['lastName','firstName','middleName'].forEach(id=>{
+      $(id).addEventListener('blur',event=>{
+        event.target.value=event.target.value.trim().replace(/\s+/g,' ').toUpperCase();
+      });
+    });
+
+    function showThankYou(){
+      form.hidden=true;
+      $('thankYou').hidden=false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
 
     function showToast(message,isError=false){
       const toast=$('toast');
@@ -236,10 +339,18 @@
       showToast.timer=setTimeout(()=>toast.classList.remove('show'),4500);
     }
 
-    function showFatal(message){$('loading').innerHTML=`<div><strong>Unable to load the form.</strong><br>${escapeHtml(message)}</div>`}
-    function escapeHtml(value){return String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;')}
+    function showFatal(message){
+      $('loading').innerHTML=`<div><strong>Unable to load the form.</strong><br>${escapeHtml(message)}</div>`;
+    }
+
+    function escapeHtml(value){
+      return String(value??'')
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'",'&#039;');
+    }
   </script>
 </body>
 </html>
-
-
