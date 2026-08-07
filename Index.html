@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <base target="_top">
@@ -44,7 +44,7 @@
     .topbar p{margin:8px 0 0;color:var(--muted)}
     .secure-chip{white-space:nowrap;padding:10px 14px;border-radius:999px;background:var(--green-100);color:var(--green-800);font-weight:750;font-size:13px}
     .card{position:relative;isolation:isolate;background:var(--surface);border:1px solid rgba(23,77,54,.08);box-shadow:var(--shadow);border-radius:24px;overflow:hidden}
-    .card::before{content:"";position:absolute;inset:0;background-image:url("https://drive.google.com/uc?export=view&id=1WeJsvzxon5JVw0QdFMIojNb1BpAbzYnA");background-repeat:no-repeat;background-position:center;background-size:min(55%,520px);opacity:.04;pointer-events:none;z-index:-1}
+    .card::before{content:"";position:absolute;inset:0;background-image:url("https://drive.google.com/thumbnail?id=1WeJsvzxon5JVw0QdFMIojNb1BpAbzYnA&sz=w1600");background-repeat:no-repeat;background-position:center;background-size:min(55%,520px);opacity:.04;pointer-events:none;z-index:-1}
     .card form,.card .loading{position:relative;z-index:1}
     .section{padding:30px;border-bottom:1px solid var(--line)}
     .section:last-child{border-bottom:0}
@@ -80,7 +80,7 @@
   <div class="shell">
     <aside class="sidebar">
       <div class="brand-mark">
-        <img src="https://drive.google.com/uc?export=view&id=1LUuNAJp8zC5gdwY8dfUPGxSn7NggVbSE" alt="NBP Logo">
+        <img src="https://drive.google.com/thumbnail?id=1LUuNAJp8zC5gdwY8dfUPGxSn7NggVbSE&sz=w1000" alt="NBP Logo">
       </div>
       <div>
         <h1>Personnel Profile Registration</h1>
@@ -104,7 +104,7 @@
         </div>
 
         <div class="card" id="appCard">
-          <div class="loading" id="loading">Loading form options…</div>
+          <div class="loading" id="loading">Loading form optionsâ€¦</div>
           <form id="personnelForm" hidden>
             <section class="section">
               <div class="section-title"><span class="section-number">1</span><h3>Identification</h3></div>
@@ -152,9 +152,9 @@
   </div>
 
   <footer class="app-footer">
-    <img src="https://drive.google.com/uc?export=view&id=1aOfA4XbQcJ5boeusIESRuOI3FgjPrkao" alt="Left Footer Logo">
+    <img src="https://drive.google.com/thumbnail?id=1aOfA4XbQcJ5boeusIESRuOI3FgjPrkao&sz=w1000" alt="Left Footer Logo">
     <div class="footer-text"><strong>NEW BILIBID PRISON</strong><span>Personnel Profile Registration System</span></div>
-    <img src="https://drive.google.com/uc?export=view&id=1eDuKV2b9-_JqC9MX0VQlOylcimeqSHsh" alt="Right Footer Logo">
+    <img src="https://drive.google.com/thumbnail?id=1eDuKV2b9-_JqC9MX0VQlOylcimeqSHsh&sz=w1000" alt="Right Footer Logo">
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -209,7 +209,7 @@
       if(!form.reportValidity())return;
       const submitButton=$('submitButton');
       submitButton.disabled=true;
-      submitButton.textContent='Saving…';
+      submitButton.textContent='Savingâ€¦';
       const payload=Object.fromEntries(new FormData(form).entries());
       google.script.run.withSuccessHandler(result=>{
         const duplicateNote=result.duplicateStatus==='UNIQUE'?'No duplicate detected.':`${result.duplicateStatus}: ${result.duplicateType}.`;
